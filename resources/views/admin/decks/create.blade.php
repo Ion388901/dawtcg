@@ -4,7 +4,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Crear un nueva categoría
+        Crear nuevo Deck
     </h1>
 </section>
 <!-- Main content -->
@@ -22,23 +22,17 @@
                 </div>
             @endif
 
-            <form method="POST" action="{{ route('admin.categories.store') }}">
+            <form method="POST" action="{{ route('admin.decks.store') }}">
                 @csrf
                 <div class="box">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="">Nombre</label>
-                            <input name="category[name]" type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="box-body">
-                        <div class="form-group">
-                            <label for="">Color</label>
-                            <input name="category[hex_color]" type="text" class="form-control">
+                            <input name="deck[name]" type="text" class="form-control">
                         </div>
                     </div>
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-info pull-right">Crear categoría</button>
+                        <button type="submit" class="btn btn-info pull-right">Crear deck</button>
                     </div>
                 </div>
             </form>

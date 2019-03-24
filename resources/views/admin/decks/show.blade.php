@@ -4,7 +4,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Cartas
+        Deck
     </h1>
 </section>
 <!-- Main content -->
@@ -13,25 +13,15 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Índice de cartas</h3>
+                    <h3 class="box-title">Nombre del deck: {{ $data['deck']->name }}</h3>
                     <div class="pull-right box-tools">
-                        <a class="btn btn-info btn-sm" href="{{ route('admin.cards.create') }}">
-                            Crear nueva carta
-                        </a>
-                        <a
-                            class="btn btn-success btn-sm"
-                            href="{{ route('admin.cards.index', ['order' => 'desc']) }}">
-                            Ordenar de forma descendente (ataque)
-                        </a>
-                        <a
-                            class="btn btn-error btn-sm"
-                            href="{{ route('admin.cards.index', ['order' => 'asc']) }}">
-                            Ordenar de forma ascendente (ataque)
+                        <a class="btn btn-info btn-sm" href="{{ route('admin.decks.cards.create', ['deck' => $data['deck']]) }}">
+                            Agregar nueva carta
                         </a>
                     </div>
                 </div>
                 <div class="box-body">
-                    @if (!$data['cards']->isEmpty())
+                    @if (!$data['deck']->cards->isEmpty())
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -44,7 +34,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach ($data['cards'] as $card)
+                            @foreach ($data['deck']->cards as $card)
                             <tr>
                                 <td>{{ $card->id }}</td>
                                 <td>{{ $card->name }}</td>
@@ -61,7 +51,7 @@
                             </tbody>
                         </table>
                     @else
-                        <p>No existe ninguna carta: <a href="{{ route('admin.cards.create') }}">crea una aquí</a></p>
+                        <p>Este deck no tiene cartas: <a href="{{ route('admin.decks.cards.create', ['deck' => $data['deck']]) }}">agrega una aquí</a></p>
                     @endif
                 </div>
             </div>

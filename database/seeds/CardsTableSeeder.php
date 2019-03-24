@@ -53,4 +53,3 @@ class CardsTableSeeder extends Seeder
         return $name;
     }
 }
-

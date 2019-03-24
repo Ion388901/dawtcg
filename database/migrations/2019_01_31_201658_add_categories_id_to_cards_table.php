@@ -22,7 +22,7 @@ class AddCategoriesIdToCardsTable extends Migration
                 ->onDelete('cascade');
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *

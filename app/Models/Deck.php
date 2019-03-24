@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Deck extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,10 +12,10 @@ class Category extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'hex_color'
+        'name'
     ];
     
     public function cards() {
-        return $this->hasMany('App\Models\Card');
+        return $this->belongsToMany('App\Models\Card');
     }
 }
